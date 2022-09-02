@@ -1,0 +1,119 @@
+@import './variables';
+
+.tabs {
+    max-width: 100%;
+}
+
+.tabs__header {
+    position: relative;
+}
+
+.tabs__menu {
+    overflow-x: auto;
+    text-align: center;
+    width: 100%;
+    white-space: nowrap;
+    padding: 0;
+}
+
+.tabs__menu__links {
+    @include horizontal-list;
+}
+
+.tabs__menu__tab {
+    padding: 5px 0;
+}
+
+.tabs__menu__tab.active,
+.tabs__menu__tab:hover {
+    background: $bg3_light;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    //border-bottom: 3px solid $secondary_color;
+    //border-bottom: 3px solid rgb(38, 168, 255)
+}
+
+.tabs__menu__link {
+    padding: 10px 45px;
+    text-decoration: none;
+    display: block;
+    color: $link_color;
+    font-weight: 600;
+}
+
+.tabs__header__gradient {
+    display: block;
+    position: absolute;
+    width: 200px;
+    top: 0;
+    bottom: 0;
+    z-index: 99;
+    transition: opacity .5s;
+    pointer-events: none;
+    font-size: 3rem;
+    color: rgba(0,0,0,.1);
+    line-height: 42px;
+    padding: 0 30px;
+}
+
+.tabs__header__gradient.right {
+    text-align: right;
+    opacity: 1;
+    right: -5px;
+    background-image: linear-gradient(to right, rgba(255,255,255,0), $bg3);
+}
+
+.tabs__header__gradient.left {
+    opacity: 1;
+    left: -5px;
+    background-image: linear-gradient(to left, rgba(255,255,255,0), $bg3);
+}
+
+.tabs__header.scrolled-left .tabs__header__gradient.left,
+.tabs__header.scrolled-right .tabs__header__gradient.right {
+    opacity: 0;
+}
+
+.tabs__content {
+    text-align: center;
+    background: $bg3_light;
+    padding: 100px 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.tabs__content__tab.hide {
+    display: none;
+}
+
+.skill__icon {
+    width: auto;
+    max-height: 200px;
+    max-width: 100%;
+    @include bounce;
+}
+
+.skill__icon--rotate {
+    @include rotate;
+}
+
+@media only screen and (max-width: $xs) {
+    
+    .tabs__header__gradient {
+        width: 80px;
+    }
+
+}
+
+@media only screen and (max-width: $sm) {
+    
+    .tabs__header__gradient {
+        width: 120px;
+    }
+
+    .tabs__menu__link {
+        padding: 10px 20px;
+        font-size: .8rem;
+    }
+
+}

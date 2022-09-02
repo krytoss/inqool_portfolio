@@ -1,0 +1,36 @@
+@import './variables';
+
+.button {
+    @include button(50%);
+    background: $secondary_color;
+    color: $text_light;
+    @include hover {
+        color: $link_hover_color
+    }
+}
+
+.button--no__bg {
+    background: transparent;
+    color: $link_color
+}
+
+.button--link {
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    background: transparent;
+}
+
+.button--smallRadius {
+    border-radius: 5px;
+}
+
+.button--disabled {
+    background: gray;
+}
+
+.button--loading {
+    cursor: wait;
+}

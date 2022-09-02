@@ -1,0 +1,183 @@
+@import './variables';
+
+#slider {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    display: flex;
+}
+
+#slider__content {
+    transition: transform .7s linear;
+    height: 100%;
+    display: flex;
+}
+
+.slider__slide {
+    height: 100%;
+    width: 100vw;
+    display: inline-block;
+    position: relative;
+}
+
+.slider__slide__image--small {
+    max-height: 70vh;
+    max-width: 40%;
+    position: absolute;
+    right: 10%;
+    top: 15vh;
+}
+
+.slider__slide__image--bounce {
+    @include bounce;
+}
+
+.slider__slide__text {
+    max-width: 40%;
+    position: absolute;
+    top: 30%;
+    color: $text_light;
+}
+
+.slider__controls {
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.slider__controls__arrow {
+    pointer-events: all;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+.slider__controls__arrow:hover img {
+    opacity: .3;
+}
+
+.slider__controls__prev {
+    left: 20px;
+}
+
+.slider__controls__prev img {
+    transform: rotate(180deg);
+}
+
+.slider__controls__next {
+    right: 20px;
+}
+
+.slider__controls__dots,
+.slider__controls__numbers {
+    position: absolute;
+    bottom: 80px;
+}
+
+.slider__controls__dots {
+    pointer-events: all;
+    text-align: center;
+    width: auto;
+    margin: 0 auto;
+    //background: rgba(0,0,0,.2);
+    left: 40px;
+    //transform: translateX(-50%);
+    border-radius: 40px;
+    padding: 0 20px;
+}
+
+.slider__controls__dot {
+    margin-right: 10px;
+    font-size: 0;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border: 3px solid transparent;
+    @include hover {
+        border: 3px solid $bg1;
+    }
+}
+
+.slider__controls__dot--active {
+    border: 3px solid $bg2;
+    background: transparent
+}
+
+.slider__controls__numbers {
+    right: 40px;
+    color: $text_light;
+    font-size: 1.5rem;
+}
+
+.slider__controls__numbers--active__slide {
+    color: $text_dark;
+    font-size: 1.6em;
+    margin-right: 5px;
+}
+
+@media only screen and (max-width: $xs) {
+
+    .slider__slide__text {
+        font-size: 1rem;
+        left: 30px;
+    }
+    
+}
+
+@media only screen and (min-width: $xs) {
+
+    .slider__slide__text {
+        font-size: 1.5rem;
+        left: 40px;
+    }
+
+}
+
+@media only screen and (min-width: $sm) {
+
+    .slider__slide__text {
+        font-size: 2rem;
+        left: 50px;
+    }
+
+    .slider__controls__dots,
+    .slider__controls__numbers {
+        position: absolute;
+        bottom: 40px;
+    }
+
+}
+
+@media only screen and (min-width: $md) {
+
+    .slider__slide__text {
+        font-size: 2.5rem;
+        left: 70px;
+    }
+
+}
+
+@media only screen and (min-width: $lg) {
+
+    .slider__slide__text {
+        font-size: 3rem;
+        left: 100px;
+    }
+
+    .slider__slide__image--small {
+        right: 20%;
+    }
+    
+}

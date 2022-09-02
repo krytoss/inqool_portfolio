@@ -1,0 +1,40 @@
+@import './variables';
+
+#scrolltop__arrow {
+    font-size: 2rem;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    transition: right .25s;
+    display: block;
+    line-height: 50px;
+    text-align: center;
+    font-weight: 800;
+    color: #000;
+    z-index: 999;
+    @include hover {
+        color: #bbb;
+    }
+    @include square(60px, 50%);
+}
+
+#scrolltop__arrow span {
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin-left: 4px;
+    margin-top: 12px;
+    border-right: 2px solid;
+    border-bottom: 2px solid;
+    border-color: #fff;
+    -webkit-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+}
+
+#scrolltop__arrow:hover span {
+    border-color: $primary_color;
+}
+
+#scrolltop__arrow.hide {
+    right: -100px;
+}

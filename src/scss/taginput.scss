@@ -1,0 +1,22 @@
+.input--tag {
+    display: flex;
+    flex-wrap:wrap;
+}
+
+.input--tag .tag {
+    padding: 4px 8px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.input--tag__input {
+    padding: 5px 10px;
+    border: none;
+    min-width: 150px;
+    flex-grow: 1;
+}
+
+.input--tag__input:focus {
+    outline: none;
+    border-bottom: 1px solid gray;
+}

@@ -1,0 +1,103 @@
+@use "sass:map";
+@import '_variables';
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Work Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    color: $primary_color;
+}
+
+section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: $bg_light;
+    padding: 50px 0;
+}
+
+.container {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.link {
+    text-decoration: none;
+    color: $link_color;
+    @include hover {
+        color: $link_hover_color
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+.section__title {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.border {
+    padding: 10px 15px;
+}
+
+.border--white {
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mr-10 {
+    margin-right: 10px;
+}
+
+@each $size, $width in $sizes {
+    @for $i from 1 through 12 {
+        @media only screen and (min-width: $width) {
+            .col-#{$size}-#{$i} {
+                padding: 10px 25px;
+                display: inline-block;
+                width: ($i / 12) * 100%;
+                box-sizing: border-box;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $xs) {
+    
+}
+
+@media only screen and (min-width: $xs) {
+
+}
+
+@media only screen and (min-width: $sm) {
+
+}
+
+@media only screen and (min-width: $md) {
+
+}
+
+@media only screen and (min-width: $lg) {
+
+}

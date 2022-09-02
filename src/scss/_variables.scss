@@ -1,0 +1,143 @@
+$primary_color: #1F2833;
+$link_color: #3e3e3e;
+$link_hover_color: #919191;
+$link_focus_color: #ddd;
+
+$text_dark: #254E58;
+$text_light: #EEFBEC;
+$primary_color: #112D32;
+$secondary_color: #88BDBC;
+$bg_light: #f0f0f0;
+$bg_dark: $text_dark;
+$bg1: #4F4A41;
+$bg2: #6E6658;
+$bg3: #a388be;
+$bg3_light: #beabd1;
+
+$xs: 360px;
+$sm: 768px;
+$md: 992px;
+$lg: 1200px;
+
+$sizes: ("xs": $xs, "sm": $sm, "md": $md, "lg": $lg);
+
+@mixin hover {
+    &:hover {
+        @content;
+    }
+}
+
+@mixin active {
+    &--active {
+        @content
+    }
+}
+
+@mixin not-last {
+    &:not(:last-child) {
+        @content
+    }
+}
+
+@mixin list-reset {
+    margin: 0;
+    padding: 0;
+    list-style-type: 0;
+}
+
+@mixin horizontal-list {
+    @include list-reset;
+    li {
+        display: inline-block;
+    }
+}
+
+@mixin square($side, $radius) {
+    height: $side;
+    width: $side;
+    border-radius: $radius;
+}
+
+@mixin not($class) {
+    &:not(#{$class}) {
+        @content
+    }
+}
+
+@mixin button($radius) {
+    text-decoration: none;
+    border: none;
+    outline: none;
+    border-radius: $radius;
+    padding: 10px 15px;
+    box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+
+    /*
+    @include not(".circle") {
+        margin-top: 20px;
+        color: #fff;
+        background-color: #05386B;
+        padding: 15px 40px;
+        width: auto;
+        text-align: center;
+        font-size: 1em;
+        transition: all 0.3s ease-in-out;
+        transform: skew(-2deg, -2deg) perspective(600px) rotateY(-25deg);
+        outline: none;
+        border: none;
+        text-transform: uppercase;
+        font-weight: 800;
+
+        .text {
+            display: block;
+            transform: skew(2deg, 2deg) rotateY(-0deg);
+        }
+    } */
+}
+
+@mixin bounce {
+    animation: 1s infinite alternate bounce;
+}
+
+@keyframes bounce {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+    100% {
+        -webkit-transform: translateY(-16px);
+        transform: translateY(-16px)
+    }
+}
+
+@mixin fade-in($time) {
+    animation: $time alternate fade-in;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+@mixin rotate {
+    animation: 10s infinite linear rotate;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+}

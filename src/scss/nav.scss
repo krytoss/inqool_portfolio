@@ -1,0 +1,110 @@
+@import '_variables';
+
+#header__nav {
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    transition: .25s top;
+    background: #88BDBC;
+    display: flex;
+    justify-content: space-between;
+}
+
+#header__nav.scrolled-top {
+    background: transparent;
+}
+
+#header__nav.hide {
+    top: -60px;
+}
+
+.nav {
+    @include horizontal-list;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: right;
+}
+
+.header__nav__item {
+    width: auto;
+}
+
+.header__nav__item__link {
+    color: #254E58;
+    padding: 20px;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 2px;
+    @include hover {
+        color: #EEFBEC;
+    }
+}
+
+#header__nav .header__nav__hamburger {
+    display: none;
+    margin: 10px 10px 0 auto;
+    padding: 0;
+    @include square(40px, 0)
+}
+
+.header__nav__hamburger .line:not(:last-child) {
+    margin-bottom: 3px;
+}
+
+.header__nav__hamburger .line {
+    transition: .3s all;
+}
+
+@media only screen and (max-width: $sm) {
+
+    .nav {
+        background: #fff;
+        position: fixed;
+        left: -300px;
+        top: 0;
+        bottom: 0;
+        width: 300px;
+        transition: left .3s;
+        z-index: 999;
+        text-align: center;
+        flex-wrap: 1;
+        flex-direction: column;
+    }
+
+    .header__nav__item {
+        display: block;
+        width: 100%;
+    }
+
+    .header__nav__item__link {
+        display: block;
+        padding: 20px;
+    }
+
+    #header__nav.show-nav ul.nav {
+        left: 0;
+    }
+
+    #header__nav .header__nav__hamburger {
+        display: block;
+    }
+
+    #header__nav.show-nav .header__nav__hamburger__line--first {
+        transform: translateY(5px) rotate(45deg);
+    }
+
+    #header__nav.show-nav .header__nav__hamburger__line--second {
+        opacity: 0;
+    }
+
+    #header__nav.show-nav .header__nav__hamburger__line--third {
+        transform: translateY(-5px) rotate(-45deg);
+    }
+    
+}

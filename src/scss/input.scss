@@ -1,0 +1,24 @@
+.input__group {
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+}
+
+.input__label {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.input {
+    font-size: 1.1rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    min-width: 150px;
+    border: 2px solid gray;
+    margin-bottom: 5px;
+}
+
+.input--fullWidth {
+    width: 100%;
+    box-sizing: border-box;
+}

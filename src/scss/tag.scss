@@ -1,0 +1,48 @@
+@import './_variables';
+
+.tag {
+    @include button(5px);
+    color: #fff;
+    background: $secondary_color;
+    position: relative;
+    font-size: .7rem;
+    margin-bottom: 5px;
+    /* background: linear-gradient(
+                to right bottom,
+                rgba(0, 0, 0, 0.1),
+                rgba(0, 0, 0, .2)); */
+    @include not-last {
+        margin-right: 20px;
+    }
+}
+
+.tag.tag--small {
+    padding: 2px 5px;
+    @include not-last {
+        margin-right: 5px;
+    }
+}
+
+.tag--clickable.tag {
+    @include hover {
+        background: $primary_color;
+        //background: rgba(142, 136, 136, 0.8)
+    }
+    @include active {
+        background: $primary_color;
+        @include hover {
+            background: $bg_dark
+        }
+        //background: rgba(142, 136, 136, 0.9)
+    }
+}
+
+.tag:not(.tag--clickable) {
+    cursor: default;
+}
+
+.tag__cancel {
+    margin-left: 10px;
+    font-size: 1rem;
+    font-weight: 800;
+}
