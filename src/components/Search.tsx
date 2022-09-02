@@ -3,28 +3,24 @@ import Input from './Input'
 
 import '../scss/search.scss'
 
-type Props = {
-
-}
-
-const Search : FC<Props> = ({}) => {
+const Search : FC = () => {
 
     const [ isOpen, setIsOpen ] = useState<boolean>(false)
     const [ value, setValue ] = useState<string>('')
 
     const ref = useRef<HTMLFormElement>(null)
 
-    const handleClick = (event: MouseEvent) => {
+    const handleClick = useCallback((event: MouseEvent) => {
         if (ref.current && !ref.current.contains(event.target as Node)) {
             setIsOpen(false)
         }
-    }
+    }, [ setIsOpen ])
 
-    const handleKeyDown = (event: KeyboardEvent) => {
+    const handleKeyDown = useCallback((event: KeyboardEvent) => {
         if (event.key === 'Escape') {
             setIsOpen(false)
         }
-    }
+    }, [ setIsOpen ] )
 
     const handleSubmit = useCallback((event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
@@ -43,7 +39,7 @@ const Search : FC<Props> = ({}) => {
             window.removeEventListener('click', handleClick)
             window.addEventListener('keydown', handleKeyDown)
         }
-    }, [ handleClick ])
+    }, [ handleClick, handleKeyDown ])
 
     return (
         <form

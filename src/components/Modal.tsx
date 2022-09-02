@@ -29,7 +29,7 @@ const Modal : FC<Props> = ({ openModal, setOpenModal, children }) => {
         ) {
             setOpenModal(false)
         }
-    }, [openModal])
+    }, [openModal, setOpenModal])
 
     useEffect(() => {
         window.addEventListener('keydown', handleKeyDown)
@@ -38,7 +38,7 @@ const Modal : FC<Props> = ({ openModal, setOpenModal, children }) => {
             window.removeEventListener('keypress', handleKeyDown)
             window.removeEventListener('click', handleClick)
         }
-    }, [ openModal, setOpenModal, handleKeyDown ])
+    }, [ openModal, setOpenModal, handleKeyDown, handleClick ])
 
     return (
         <div className='modal__overlay' ref={overlayRef}>

@@ -42,6 +42,8 @@ const Portfolio : FC = () => {
             //setIsScrolling(!isScrolledRight && insideRef.current?.scrollLeft !== scrollLeft)
         }
     }, [ isScrolledRight, project, projects ])
+        // eslint dáva warning že projects netreba, ale je to tu naschvál -
+        // keď sa zmenší počet projektov tak, že zmiznu šípky a potom sa zväčší, tak šípka nepribudne, preto to tu je :)
 
     const scroll = useCallback(() => {
         const el = document.getElementsByClassName('portfolio__project')[0]
